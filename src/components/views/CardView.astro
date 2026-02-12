@@ -1,10 +1,10 @@
 ---
-import { getCollection } from 'astro:content'
+import { getCollection, render } from 'astro:content'
 
 import CardItem from '~/components/views/CardItem.astro'
 import Loader from '~/components/widgets/Loader.astro'
 import Warning from '~/components/base/Warning.astro'
-import { processBlueskyPosts, getShortsFromBlog } from '~/utils/data'
+import { getShortsFromBlog } from '~/utils/data'
 
 import type { CollectionKey } from 'astro:content'
 import type { CardItemData } from '~/components/views/CardItem.astro'
@@ -34,10 +34,8 @@ let dataForGrid: CardItemData[] = []
 
 if (collectionType === 'highlights') {
   const highlights = await getCollection(collectionType)
-  dataForMasonry = processBlueskyPosts(highlights).sort((a, b) =>
-    !a.date || !b.date
-      ? 0
-      : new Date(b.date).valueOf() - new Date(a.date).valueOf()
+  dataForMasonry = highlights.sort(
+    (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()
   )
 }
 
@@ -62,12 +60,17 @@ if (dataForMasonry.length === 0 && dataForGrid.length === 0) isEmpty = true
             data-min-card-width={minCardWidth}
             data-max-card-width={maxCardWidth}
           >
-            {dataForMasonry.map((item) => (
-              <CardItem
-                class="card-masonry absolute top-0 left-0"
-                item={item}
-              />
-            ))}
+            {dataForMasonry.map(async (item) => {
+              const { Content } = await render(item)
+              return (
+                <CardItem
+                  class="card-masonry absolute top-0 left-0"
+                  item={item.data}
+                >
+                  <Content />
+                </CardItem>
+              )
+            })}
           </responsive-masonry>
           <Loader class="card-loader" />
         </>

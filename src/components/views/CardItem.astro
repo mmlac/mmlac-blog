@@ -17,14 +17,16 @@ interface ImageData {
 interface VideoData {
   src: string
   alt: string
-  poster: string
+  poster?: string
+  thumbnail?: string
 }
 
 interface ExternalData {
   uri: string
   title: string
   description: string
-  img: string
+  img?: string
+  thumb?: string
 }
 
 interface QuoteData {
@@ -66,6 +68,9 @@ const MAX_DETAILS = 3
 
 const { date, text, html, link, images, video, external, quote, details } = item
 
+const videoPoster = video?.poster ?? video?.thumbnail
+const externalImage = external?.img ?? external?.thumb
+
 const MediaContainer = link ? Link : 'div'
 const ContentContainer = details
   ? 'collapsible-content'
@@ -74,6 +79,7 @@ const ContentContainer = details
     : 'div'
 
 let proccessedImages: { src: string | ImageMetadata; alt: string }[] = []
+let processedExternalImage: string | ImageMetadata | null = null
 if (images && images.length > 0) {
   if (images.some((image) => !image.src.startsWith('http'))) {
     const localImages = import.meta.glob<{ default: ImageMetadata }>(
@@ -97,6 +103,23 @@ if (images && images.length > 0) {
     )
   } else {
     proccessedImages = images
+  }
+}
+
+if (externalImage) {
+  if (!externalImage.startsWith('http')) {
+    const localImages = import.meta.glob<{ default: ImageMetadata }>(
+      '/src/assets/**/*.{jpg,jpeg,png,webp,avif}'
+    )
+
+    if (!localImages[externalImage])
+      throw new Error(
+        `"${externalImage}" does not exist in glob: "/src/assets/**/*.{jpg,jpeg,png,webp,avif}"`
+      )
+
+    processedExternalImage = (await localImages[externalImage]()).default
+  } else {
+    processedExternalImage = externalImage
   }
 }
 ---
@@ -136,7 +159,7 @@ if (images && images.length > 0) {
             <video
               class="w-full aspect-[16/9] object-cover"
               src={video.src}
-              poster={video.poster}
+              poster={videoPoster}
               aria-label={video.alt}
               autoplay
               muted
@@ -156,12 +179,14 @@ if (images && images.length > 0) {
             op-100! shadow-transition-500 hover:(shadow-custom_0_5_15_-3)`}
           href={external.uri}
         >
-          {!COMPACT && external.img && (
+          {!COMPACT && processedExternalImage && (
             <Image
               class="b-b b-b-[#8884] aspect-[1.91/1] object-cover"
-              src={external.img}
+              src={processedExternalImage}
               alt={external.title}
-              inferSize
+              {...(typeof processedExternalImage === 'string'
+                ? { inferSize: true }
+                : {})}
               {...imageProps}
             />
           )}

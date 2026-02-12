@@ -205,3 +205,42 @@ export const streamSchema = z.object({
 })
 
 export type StreamSchema = z.infer<typeof streamSchema>
+
+// Define the schema based on `CardItemData` in `src/components/views/CardItem.astro`
+// Include only necessary properties.
+// Exclude `html` and `text`, as content is written in Markdown rather than frontmatter.
+
+export const highlightSchema = z.object({
+  date: z.coerce.date(),
+  images: z
+    .array(
+      z.object({
+        src: z.string(),
+        alt: z.string(),
+      })
+    )
+    .optional(),
+  video: z
+    .object({
+      src: z.string(),
+      alt: z.string(),
+      thumbnail: z.string().optional(),
+      poster: z.string().optional(),
+    })
+    .refine((data) => data.thumbnail || data.poster, {
+      message: 'video.thumbnail: Required',
+    })
+    .optional(),
+  external: z
+    .object({
+      uri: z.string(),
+      title: z.string(),
+      description: z.string(),
+      thumb: z.string().optional(),
+      img: z.string().optional(),
+    })
+    .refine((data) => data.thumb || data.img, {
+      message: 'external.thumb: Required',
+    })
+    .optional(),
+})

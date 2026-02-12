@@ -85,4 +85,52 @@
     ],
     "description": "Insert a photo entry for photos data",
   },
+
+  "Add Highlight URL": {
+    "scope": "markdown,mdx",
+    "prefix": "highlightURL",
+    "body": [
+      "---",
+      "date: ${1:$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE}",
+      "external:",
+      "  uri: ${2:URL of the highlight}",
+      "  title: ${3:Title of the highlight}",
+      "  description: ${4:If not needed, leave the field as an empty string)",
+      "  thumb: ${5:Thumbnail image URL for the highlight (optional)}",
+      "---",
+    ],
+    "description": "Add an external URL to the highlights collection",
+  },
+
+  "Add Highlight video": {
+    "scope": "markdown,mdx",
+    "prefix": "highlightVideo",
+    "body": [
+      "---",
+      "date: ${1:$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE}",
+      "video:",
+      "  src: ${2:URL of the video in /src/assets/...}",
+      "  alt: ${3:Alt text for the video}",
+      "  thumbnail: ${5:Thumbnail image URL for the highlight}",
+      "---",
+    ],
+    "description": "Add an external URL to the highlights collection",
+  },
+
+  "Add Highlight Image(s)": {
+    "scope": "markdown,mdx",
+    "prefix": "highlightImages",
+    "body": [
+      "---",
+      "date: ${1:$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE}",
+      "images: [",
+      "  {",
+      "    src: ${2:URL of the image},",
+      "    alt: ${3:Alt text for the image},",
+      "  }",
+      "]",
+      "---",
+    ],
+    "description": "Add an external URL to the highlights collection",
+  },
 }

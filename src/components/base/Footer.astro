@@ -9,7 +9,17 @@ const copyrightText = `© ${currentYear} ${SITE.author}`
 <footer class="slide-enter animate-delay-1600! px-7 mt-auto mb-8">
   <div class="prose mx-auto op-50">
     <div class="flex lt-sm:flex-col items-center text-sm whitespace-nowrap">
-      <span>{copyrightText}</span>
+      <span>
+        <Link
+          class="op-100! color-[--fg]!"
+          href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+          title="CC BY-NC-SA 4.0"
+          external={true}
+        >
+          CC BY-NC-SA 4.0</Link
+        >
+        {copyrightText}</span
+      >
       <span class="lt-sm:hidden">&nbsp;|&nbsp;</span>
       <span>
         Powered by
