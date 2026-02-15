@@ -3,7 +3,7 @@ import type { Site, Ui, Features } from './types'
 export const SITE: Site = {
   website: 'https://mmlac.com',
   base: '/',
-  title: 'Blog of Markus Lachinger',
+  title: 'Methodos Mechanicus',
   description:
     'Posts about software development, open source, and other tech topics by Markus Lachinger.',
   author: 'Markus Lachinger',
@@ -31,6 +31,12 @@ export const UI: Ui = {
       title: 'Projects',
       displayMode: 'alwaysText',
       text: 'Projects',
+    },
+    {
+      path: '/',
+      title: 'About Me',
+      displayMode: 'alwaysText',
+      text: 'About Me',
     },
   ],
   socialLinks: [
