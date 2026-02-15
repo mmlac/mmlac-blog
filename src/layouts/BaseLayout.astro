@@ -13,6 +13,7 @@ import BackLink from '~/components/widgets/BackLink.astro'
 import Footer from '~/components/base/Footer.astro'
 import ToTopButton from '~/components/widgets/ToTopButton.astro'
 import Backdrop from '~/components/base/Backdrop.astro'
+import ImageViewer from '~/components/widgets/ImageViewer.astro'
 
 import { SITE, UI, FEATURES } from '~/config'
 import { withBasePath } from '~/utils/path'
@@ -96,6 +97,9 @@ if (hasCustomCursor) style['--external-link-cursor'] = cursorType
 
     <!-- Panel Backdrop (on mobile) -->
     <Backdrop />
+
+    <!-- Image Zoom Viewer -->
+    <ImageViewer selector="article" options={{ title: 0, navbar: 0 }} />
 
     <!-- Progress Bar -->
     <script>
