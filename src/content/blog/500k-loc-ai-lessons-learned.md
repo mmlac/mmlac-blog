@@ -2,7 +2,7 @@
 title: Lessons Learned after Writing 500k Lines of Code with AI
 subtitle: A whole program written only with GitHub Copilot & Codex
 description: Lessons learned after writing a full desktop app with GitHub Copilot & Codex
-pubDate: 2026-02-16
+pubDate: 2026-02-15
 radio: false
 video: false
 toc: true
