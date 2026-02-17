@@ -156,4 +156,23 @@ const webPageData = {
   )
 }
 
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-vBtKvQ6_ZVQWuux3Nowwr.js"
+></script>
+<script>
+  /* eslint-disable @typescript-eslint/no-unused-expressions, prefer-rest-params */
+  ;((window.plausible =
+    window.plausible ||
+    function () {
+      ;(plausible.q = plausible.q || []).push(arguments)
+    }),
+    (plausible.init =
+      plausible.init ||
+      function (i) {
+        plausible.o = i || {}
+      }))
+  plausible.init()
+  /* eslint-enable @typescript-eslint/no-unused-expressions, prefer-rest-params */
+</script>
+
 <ClientRouter />
