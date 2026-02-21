@@ -1,5 +1,21 @@
 [
   {
+    "id": "freightops",
+    "link": "https://github.com/mmlac/freightops",
+    "desc": "Freight Operations backend with LLM support",
+    "icon": "i-devicon-astro",
+    "category": "Prototypes & Experiments"
+  },
+
+  {
+    "id": "freightops-ui",
+    "link": "https://github.com/mmlac/freightops_ui",
+    "desc": "Freight Operations frontend with LLM support",
+    "icon": "i-devicon-astro",
+    "category": "Prototypes & Experiments"
+  },
+
+  {
     "id": "astro",
     "link": "https://github.com/withastro/astro",
     "desc": "The web framework for content-driven websites",
