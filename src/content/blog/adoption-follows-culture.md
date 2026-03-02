@@ -9,7 +9,7 @@ toc: true
 share: true
 giscus: true
 search: true
-draft: true
+draft: false
 ogImage: adoption-follows-culture.png
 ---
 
