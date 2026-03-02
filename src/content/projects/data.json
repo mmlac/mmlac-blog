@@ -3,7 +3,7 @@
     "id": "freightops",
     "link": "https://github.com/mmlac/freightops",
     "desc": "Freight Operations backend with LLM support",
-    "icon": "i-devicon-astro",
+    "icon": "i-material-symbols:delivery-truck-speed",
     "category": "Prototypes & Experiments"
   },
 
@@ -11,8 +11,16 @@
     "id": "freightops-ui",
     "link": "https://github.com/mmlac/freightops_ui",
     "desc": "Freight Operations frontend with LLM support",
-    "icon": "i-devicon-astro",
+    "icon": "i-material-symbols:delivery-truck-speed",
     "category": "Prototypes & Experiments"
+  },
+
+  {
+    "id": "GasTown",
+    "link": "https://github.com/steveyegge/gastown",
+    "desc": "Gas Town - multi-agent workspace manager",
+    "icon": "i-ic:baseline-manage-accounts",
+    "category": "Active Involvement"
   },
 
   {
