@@ -1,16 +1,8 @@
 [
   {
-    "id": "freightops",
-    "link": "https://github.com/mmlac/freightops",
-    "desc": "Freight Operations backend with LLM support",
-    "icon": "i-material-symbols:delivery-truck-speed",
-    "category": "Prototypes & Experiments"
-  },
-
-  {
-    "id": "freightops-ui",
-    "link": "https://github.com/mmlac/freightops_ui",
-    "desc": "Freight Operations frontend with LLM support",
+    "id": "fieldnotes",
+    "link": "https://github.com/mmlac/fieldnotes",
+    "desc": "Local knowledge database with LLMs",
     "icon": "i-material-symbols:delivery-truck-speed",
     "category": "Prototypes & Experiments"
   },
