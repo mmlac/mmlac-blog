@@ -10,7 +10,7 @@ share: true
 giscus: true
 search: true
 ogImage: true
-draft: true
+draft: false
 ---
 
 In the [GasTown post](/blog/gastown-intro) I made a throwaway claim: your worker agents — the *polecats* that actually write the code — don't need your strongest model. Run them on Sonnet, not Opus, and your API bill stops looking like a car payment.
